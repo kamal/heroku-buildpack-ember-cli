@@ -148,5 +148,9 @@ if test -d $build_dir/bower_components; then
   cp -r $build_dir/bower_components $cache_dir/
 fi
 
+status "Extra setup for some packages"
+ln -s $build_dir/bower_components/foundation/scss/foundation $build_dir/app/styles/foundation
+node_modules/ember-cli/bin/ember g ember-moment
+
 status "Building Ember CLI application $build_env distribution"
 node_modules/ember-cli/bin/ember build --environment $build_env | indent
